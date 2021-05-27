@@ -1,5 +1,4 @@
-# docker로 mongo-clustering 구현하기
-
+# docker로 mongo-clustering 구현하
 ## 왜 cluster인가?
 저번에 docker로 mongo-replicaset을 구현해보았습니다.
 레플리카셋을 통해 하나의 서버 안에서 세 개의 디비 컨테이너가 동작하며
@@ -76,3 +75,4 @@ mongos> sh.addShard("shard2rs/192.168.1.81:50004,192.168.1.81:50005,192.168.1.81
 mongos> sh.status()
 ```
 
+참고: https://boying-blog.tistory.com/35
