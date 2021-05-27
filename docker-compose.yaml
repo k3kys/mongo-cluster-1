@@ -17,7 +17,7 @@ services:
         ports:
             - 50001:27017
         volumes:
-            - shard1svr1:/data/db
+            - shardsvr1:/data/db
 
     mongos:
         container_name: mongos

@@ -1,5 +1,5 @@
 rsconf = {
-    _id : "cgfrs",
+    _id : "shard1rs",
     configsvr: true,
     members: [
       { _id : 0, host : "15.164.251.138:50001" },
