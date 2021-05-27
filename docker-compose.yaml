@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+    cfgsvr1:
+        container_name: cfgsvr1
+        image: mongo
+        command: mongod --configsvr --replSet cfgrs --port 27017 --dbpath /data/db
+        ports:
+            - 40001:27017
+        volumes:
+            - cfgsvr1:/data/db
+
+    shardsvr1:
+        container_name: shardsvr1
+        image: mongo
+        command: mongod --shardsvr --replSet shard1rs --port 27017 --dbpath /data/db
+        ports:
+            - 50001:27017
+        volumes:
+            - shard1svr1:/data/db
+
+    mongos:
+        container_name: mongos
+        image: mongo
+        command: mongos --configdb cfgrs/15.164.251.138:40001,15.164.129.191:40002,13.209.43.198:40003 --bind_ip 0.0.0.0 --port 27017
+        ports:
+            - 60000:27017
+
+    setup-rs:
+        image: "setup-rs"
+        build: ./setup
+        depends_on:
+            - "mongo-rs0-1"
+    
+
+volumes:
+  cfgsvr1: {}
+  shard1svr1: {}
