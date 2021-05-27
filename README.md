@@ -12,6 +12,8 @@
 
 
 ## 개념
+<img src="https://user-images.githubusercontent.com/56282663/119774164-bb661e80-befc-11eb-8d9c-9ed7675c6b3b.png"/>
+
 mongos : 라우터의 역할로 사용자가 접속하는 포인트로 쿼리를 받아 config server의 분산 정보를 참조하여 샤드로 전달해 주고 사용자들에게 결과를 리턴해주는 역할
 
 config server : 샤드 클러스터에서 분산된 샤드 정보를 저장하고 관리
